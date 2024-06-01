@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    </head>
+        <body>
+            <h2>Decision Tree</h2>
+            <form action="/submit" method="post">
+                <label for="buy">Buying:</label><br>
+                <input type="text" id="buy" name="buy" value="0"><br>
+                <label for="maint">Manintainance:</label><br>
+                <input type="text" id="maint" name="maint" value="0"><br>
+                <label for="doors">Doors:</label><br>
+                <input type="text" id="doors" name="doors" value="0"><br>
+                <label for="per">Persons:</label><br>
+                <input type="text" id="per" name="per" value="0"><br>
+                <label for="lug">Luggage Boot:</label><br>
+                <input type="text" id="lug" name="lug" value="0"><br>
+                <label for="safe">safety:</label><br>
+                <input type="text" id="safe" name="safe" value="0"><br>
+                <button type="submit">Predict</button>
+                
+            </form>
+            {% if buy %}
+                {% if prediction=='unacc' %}
+                    <p class="centered">The Selected features of car is unacceptable</p>
+                {% elif prediction=='acc' %}
+                    <p class="centered">The Selected features of car is acceptable but not good</p>
+                {% elif prediction=='vgood' %}
+                    <p class="centered">The selected features of car is pretty good</p>
+                {% else %}
+                    <p class="centered">The selected features of car is very good</p>
+                {% endif %}
+            {% endif %}
+        </body>
+</html>

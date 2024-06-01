@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    </head>
+        <body>
+            <h1 class="centered">NAIVE BAYES</h1>
+            <form action="/submit" method="post">
+                <label for="preg">Pregnencies:</label><br>
+                <input type="text" id="preg" name="preg" value="0"><br>
+                <label for="glu">Glucose:</label><br>
+                <input type="text" id="glu" name="glu" value="0"><br>
+                <label for="blood">Blood Pressure:</label><br>
+                <input type="text" id="blood" name="blood" value="0"><br>
+                <label for="skin">Skin Thickness:</label><br>
+                <input type="text" id="skin" name="skin" value="0"><br>
+                <label for="ins">Insulin:</label><br>
+                <input type="text" id="ins" name="ins" value="0"><br>
+                <label for="bmi">BMI:</label><br>
+                <input type="text" id="bmi" name="bmi" value="0"><br>
+                <label for="dia">Diabetes Pedigree Function:</label><br>
+                <input type="text" id="dia" name="dia" value="0"><br>
+                <label for="age">Age:</label><br>
+                <input type="text" id="age" name="age" value="0"><br>
+                <button type="submit">Predict</button>
+                
+            </form>
+            {% if age and glu %}
+                {% if prediction==1 %}
+                    <p class="centered">The Patient has diabetes</p>
+                {% else %}
+                    <p class="centered">The Patient does not have diabetes</p>
+                {% endif %}
+            {% endif %}
+        </body>
+</html>

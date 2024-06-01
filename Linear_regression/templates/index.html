@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    </head>
+    <body>
+        <h2>Linear Regression</h2>
+        <form action="/submit" method="post">
+            <label for="exp">Experience:</label><br>
+            <input  type="text" id="exp" name="exp" value="0"><br>
+            <button type="submit">Predict</button>
+        </form>
+        {% if exp %}
+    <p class="centered">Experience: {{ exp }} years</p>
+    <p class="centered">Predicted Salary: {{ prediction }}</p>
+    {% endif %}
+    </body>
+</html>
